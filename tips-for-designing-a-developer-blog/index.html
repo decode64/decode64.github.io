@@ -1,0 +1,190 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <link rel="icon" type="image/png" sizes="100x100" href="../assets/favicon.png">
+
+    <title>Tips For Designing A Developer Blog | decode64 </title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+
+    <script src="/assets/highlight.min.js" defer="true"></script>
+
+    <style type="text/css">
+    
+    /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:block}h1{font-size:2em;margin:0.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace, monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace, monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-0.25em}sup{top:-0.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}button,[type="button"],[type="reset"],[type="submit"]{-webkit-appearance:button}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner{border-style:none;padding:0}button:-moz-focusring,[type="button"]:-moz-focusring,[type="reset"]:-moz-focusring,[type="submit"]:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:0.35em 0.75em 0.625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type="checkbox"],[type="radio"]{box-sizing:border-box;padding:0}[type="number"]::-webkit-inner-spin-button,[type="number"]::-webkit-outer-spin-button{height:auto}[type="search"]{-webkit-appearance:textfield;outline-offset:-2px}[type="search"]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}template{display:none}[hidden]{display:none}body{margin:0;padding:0;font-family:'Montserrat', sans-serif;font-smooth:always;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:geometricPrecision}h1{margin:0;margin-bottom:40px}p{margin:25px 0;line-height:25px}pre.highlight{max-width:100%;overflow-x:scroll}a{text-decoration:none;color:#0066FF}code.language-plaintext{color:#FF0000;font-family:Ubuntu Mono, monospace}.container{max-width:630px;margin-left:150px}@media screen and (max-width: 600px){.container{max-width:630px;width:100%;margin-left:0 !important}}.highlight{margin-left:20px}.header span{margin-left:20px}.tags{list-style-type:none;margin:0;padding:0}.tags li{display:inline;border:1px solid #000;padding:2px 6px;margin-right:10px;font-size:12px}.copy{text-align:center;font-size:10px;margin-top:20px;margin-bottom:10px}.c-post-end{margin-top:40px;margin-bottom:25px;width:100%;background:url("../assets/post-end.svg") no-repeat;height:12px}.l-post{margin-top:35px}.l-post__date{padding-left:25px;margin:30px 0}.l-post__content{padding-left:25px}.l-post__cta{margin-bottom:25px}@media screen and (max-width: 600px){.l-post{padding:0 10px !important}.l-post h1{padding:0 !important}.l-post .highlight{margin-left:0 !important}.l-post__content{padding:0 !important}}/*!
+  Theme: a11y-light
+  Author: @ericwbailey
+  Maintainer: @ericwbailey
+
+  Based on the Tomorrow Night Eighties theme: https://github.com/isagalaev/highlight.js/blob/master/src/styles/tomorrow-night-eighties.css
+*/.hljs{background:#fefefe;color:#545454}.hljs-comment,.hljs-quote{color:#696969}.hljs-variable,.hljs-template-variable,.hljs-tag,.hljs-name,.hljs-selector-id,.hljs-selector-class,.hljs-regexp,.hljs-deletion{color:#d91e18}.hljs-number,.hljs-built_in,.hljs-literal,.hljs-type,.hljs-params,.hljs-meta,.hljs-link{color:#aa5d00}.hljs-attribute{color:#aa5d00}.hljs-string,.hljs-symbol,.hljs-bullet,.hljs-addition{color:#008000}.hljs-title,.hljs-section{color:#007faa}.hljs-keyword,.hljs-selector-tag{color:#7928a1}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:bold}@media screen and (-ms-high-contrast: active){.hljs-addition,.hljs-attribute,.hljs-built_in,.hljs-bullet,.hljs-comment,.hljs-link,.hljs-literal,.hljs-meta,.hljs-number,.hljs-params,.hljs-string,.hljs-symbol,.hljs-type,.hljs-quote{color:highlight}.hljs-keyword,.hljs-selector-tag{font-weight:bold}}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <section class="header">
+        <a href="/" >
+          <img src="/assets/decode64-logo.svg" alt="Decode64 Logo" width=100 height=34 />
+        </a>
+        <span>Adriano Luz</span>
+      </section>
+
+      <section class="l-post">
+        <div class="l-post__date">
+          Jun  8, 2021
+        </div>
+        <h1>Tips For Designing A Developer Blog</h1>
+        <div class="l-post__content">
+          <p>I’m starting a new blog. And what a better way to start it than talking about how I’ve built it?</p>
+
+<p>Usually developers write their first “Hello World” blog post describing all the languages, frameworks
+and coding techniques they have used to build the blog.</p>
+
+<p>But unlike all developers, I won’t describe how I built it technically.</p>
+
+<p>First because I used a quite ordinary set of tools: jekyll served from github pages.</p>
+
+<p>Second, because I want to use this first post to set the expectation of what kind of topic intend
+to write about in this blog.</p>
+
+<p>In this post I’ll discuss how I built my blog from a design perspective and give some tips about
+designing personal blogs for developers.</p>
+
+<h2 id="lets-talk-about-design">Let’s Talk About Design</h2>
+
+<p>The goal of any blog is to keep the reader’s attention to be able to deliver a message or knowledge
+effectively. For this reason you’ll notice that my blog has a really simple UI. Some may
+call it “minimalist”.</p>
+
+<p>It is minimalist in the sense that all that I’ve done in the UI was just adding a few sprinkles on top
+of what browsers render naturally without any styling. You can see that not much changes if
+you render my blog without CSS.</p>
+
+<p>The few changes added on top of a raw HTML were added with the goal to improve as
+much as possible the reading experience.</p>
+
+<p>Here are the 7 main design elements that I used to build a better blog.</p>
+
+<h3 id="1-limit-content-width">1. Limit Content Width</h3>
+
+<p>Perhaps the most important tip. Limit the width of the text.</p>
+
+<p>Long lines are really difficult to read and to keep track of. When readers reach the end of the
+current line they won’t have the beginning of the line in their field of view if the line is too long.
+This makes it difficult to know which line is the next.</p>
+
+<p>It will cause frustration and can make readers lose interest in the content
+only because the text is hard to read.</p>
+
+<h3 id="2-dont-add-distractions-in-the-middle-of-the-text">2. Don’t Add Distractions In The Middle Of The Text</h3>
+
+<p>No pop-ups, no animations, no ads. Nothing. You want your readers to stay focused on the text to be
+able to communicate your ideas effectively.</p>
+
+<p>It is very likely that readers will already have other sources of distraction while reading your content.
+Don’t add another one.</p>
+
+<h3 id="3-add-code-highlighting">3. Add Code Highlighting</h3>
+
+<p>Code highlighting is one of the best tools for software development and can be integrated
+into your blog to make code blocks easier to read.</p>
+
+<p>It is also important to add highlighting for inline code snippets. Something simple like
+a text with different color using a monospace font is enough to make the inline code
+distinguishable from the normal text.</p>
+
+<h3 id="4-display-the-post-date-at-the-top">4. Display The Post Date At The Top</h3>
+
+<p>One of the most frustrating experiences for a software developer is to read an entire blog post,
+test the examples and ideas, fail to make them work and, after a lot of debugging, discover
+that the post is outdated.</p>
+
+<p>For this reason, any blog, especially blogs focused on software development, should include the date
+of the post at the beginning of the page.</p>
+
+<p>If you have an outdated post that you know that doesn’t work anymore, add a disclaimer at the beginning
+of the text. Another idea is to write a new post and add the link to the updated version on the old one.</p>
+
+<h3 id="5-tag-your-posts">5. Tag Your Posts</h3>
+
+<p>Tags are a simple way to give additional context about a blog post theme. But don’t add too many of
+them to a blog post.</p>
+
+<p>Many tags to a single post means that the content doesn’t have a clear focus or some of the tags
+are irrelevant. Either case is bad for readers.</p>
+
+<h3 id="6-avoid-default-visual-themes-and-templates">6. Avoid Default Visual Themes And Templates</h3>
+
+<p>A unique visual style to the blog allows the readers to quickly recognize that they are reading
+your blog. The blog UI is part of your branding.</p>
+
+<p>For this reason, avoid default themes or themes that are used by many other developers. Try to come
+up with something new.</p>
+
+<p>Keep in mind that the blog visuals should be simple. Remember, the goal is to improve the
+experience of the readers and not to distract them with fancy CSS.</p>
+
+<h3 id="7-call-to-action-at-the-end">7. Call To Action At The End</h3>
+
+<p>If a reader reached the end of your content, congratulations!</p>
+
+<p>It means that the reader enjoyed your content and you can use this opportunity to guide them to a place
+where they can learn more about the topic.</p>
+
+<p>You can add a link to a related post or a link to your social media where the reader can ask you questions
+or give feedback about your content.</p>
+
+<h2 id="reading-experience">Reading Experience</h2>
+
+<p>Everything is designed for someone to accomplish a specific goal. When designing a blog for developers
+we should think how the design will improve the reading experience and, as a consequence, help the
+readers to learn as much as possible.</p>
+
+<p>Are you designing a blog? What design element have you added to improve the reader’s experience?</p>
+
+        </div>
+
+        <div class="c-post-end"></div>
+        <div class="l-post__cta">
+          <em>
+            If you liked this post consider <a target='_blank' href="https://twitter.com/intent/tweet?text=Tips For Designing A Developer Blog by @decode64 https://decode64.dev/tips-for-designing-a-developer-blog/">sharing it on Twitter</a>. You reach me
+            at <a href="https://twitter.com/decode64">@decode64</a>
+            for any questions, comments or feedback.
+          </em>
+        </div>
+
+        <ul class="tags">
+          
+          <li>design</li>
+          
+          <li>meta</li>
+          
+        </ul>
+      </section>
+
+      <div class="copy">2021 © Adriano Luz</div>
+    </div>
+
+    <script>
+      function highlight() {
+        if (typeof hljs !== 'undefined') { hljs.highlightAll() }
+        else { setTimeout(highlight, 1000) }
+      }
+      highlight()
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-76506964-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-76506964-1');
+    </script>
+  </body>
+</html>
