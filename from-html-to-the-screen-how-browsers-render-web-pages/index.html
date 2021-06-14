@@ -1,0 +1,231 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <link rel="icon" type="image/png" sizes="100x100" href="../assets/favicon.png">
+
+    <title>From HTML To The Screen: How Browsers Render Web Pages | decode64 </title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+
+    <script src="/assets/highlight.min.js" defer="true"></script>
+
+    <style type="text/css">
+    
+    /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:block}h1{font-size:2em;margin:0.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace, monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace, monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-0.25em}sup{top:-0.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}button,[type="button"],[type="reset"],[type="submit"]{-webkit-appearance:button}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner{border-style:none;padding:0}button:-moz-focusring,[type="button"]:-moz-focusring,[type="reset"]:-moz-focusring,[type="submit"]:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:0.35em 0.75em 0.625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type="checkbox"],[type="radio"]{box-sizing:border-box;padding:0}[type="number"]::-webkit-inner-spin-button,[type="number"]::-webkit-outer-spin-button{height:auto}[type="search"]{-webkit-appearance:textfield;outline-offset:-2px}[type="search"]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}template{display:none}[hidden]{display:none}body{margin:0;padding:0;font-family:'Montserrat', sans-serif;font-smooth:always;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:geometricPrecision}h1{margin:0;margin-bottom:40px}p{margin:25px 0;line-height:25px}pre.highlight{max-width:100%;overflow-x:scroll}a{text-decoration:none;color:#0066FF}code.language-plaintext{color:#FF0000;font-family:Ubuntu Mono, monospace}.container{max-width:630px;margin-left:150px}@media screen and (max-width: 600px){.container{max-width:630px;width:100%;margin-left:0 !important}}.highlight{margin-left:20px}.header span{margin-left:20px}.tags{list-style-type:none;margin:0;padding:0}.tags li{display:inline;border:1px solid #000;padding:2px 6px;margin-right:10px;font-size:12px}.copy{text-align:center;font-size:10px;margin-top:20px;margin-bottom:10px}.c-post-end{margin-top:40px;margin-bottom:25px;width:100%;background:url("../assets/post-end.svg") no-repeat;height:12px}.l-post{margin-top:35px}.l-post img{margin:15px auto;display:block}.l-post__date{padding-left:25px;margin:30px 0}.l-post__content{padding-left:25px}.l-post__cta{margin-bottom:25px}@media screen and (max-width: 600px){.l-post{padding:0 10px !important}.l-post h1{padding:0 !important}.l-post .highlight{margin-left:0 !important}.l-post__content{padding:0 !important}}/*!
+  Theme: a11y-light
+  Author: @ericwbailey
+  Maintainer: @ericwbailey
+
+  Based on the Tomorrow Night Eighties theme: https://github.com/isagalaev/highlight.js/blob/master/src/styles/tomorrow-night-eighties.css
+*/.hljs{background:#fefefe;color:#545454}.hljs-comment,.hljs-quote{color:#696969}.hljs-variable,.hljs-template-variable,.hljs-tag,.hljs-name,.hljs-selector-id,.hljs-selector-class,.hljs-regexp,.hljs-deletion{color:#d91e18}.hljs-number,.hljs-built_in,.hljs-literal,.hljs-type,.hljs-params,.hljs-meta,.hljs-link{color:#aa5d00}.hljs-attribute{color:#aa5d00}.hljs-string,.hljs-symbol,.hljs-bullet,.hljs-addition{color:#008000}.hljs-title,.hljs-section{color:#007faa}.hljs-keyword,.hljs-selector-tag{color:#7928a1}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:bold}@media screen and (-ms-high-contrast: active){.hljs-addition,.hljs-attribute,.hljs-built_in,.hljs-bullet,.hljs-comment,.hljs-link,.hljs-literal,.hljs-meta,.hljs-number,.hljs-params,.hljs-string,.hljs-symbol,.hljs-type,.hljs-quote{color:highlight}.hljs-keyword,.hljs-selector-tag{font-weight:bold}}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <section class="header">
+        <a href="/" >
+          <img src="/assets/decode64-logo.svg" alt="Decode64 Logo" width=100 height=34 />
+        </a>
+        <span>Adriano Luz</span>
+      </section>
+
+      <section class="l-post">
+        <div class="l-post__date">
+          Jun 14, 2021
+        </div>
+        <h1>From HTML To The Screen: How Browsers Render Web Pages</h1>
+        <div class="l-post__content">
+          <p>The most basic function of a web browser is to get a html file, along with
+an optional css, interpret them and display a page to the user. It is a complex
+process but it is based on basic principles that any developer can understand.</p>
+
+<p>In this post we will learn the basics of html rendering and discuss how we can
+improve our html and css from what we learned.</p>
+
+<p>Let’s get right to it!</p>
+
+<h2 id="constructing-the-dom">Constructing the DOM</h2>
+
+<p>After downloading the html file from the web, the first step taken by the browser
+is to construct the DOM based on this file.</p>
+
+<p>The DOM (Document Object Model) is the internal browser representation of a page
+and it is represented as a tree.</p>
+
+<p>To better understand how the DOM is built let’s use the following HTML as an
+example and go over each step of the DOM construction for this file.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"main.css"</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>From HTML To The Screen: How Browsers Render Web Pages<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>Lorem Ipsum<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;p&gt;</span>Dolor sit amet.<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>To construct the DOM tree, the browser has to first read each character of the
+html text file and transform this text into a sequence of tokens.</p>
+
+<p>A token is a representation of a piece of text that has a special meaning and
+specific rules about how to handle it.</p>
+
+<p>The example HTML above will produce the following sequence of tokens:</p>
+
+<p><code class="language-plaintext highlighter-rouge">HTML</code> &gt; <code class="language-plaintext highlighter-rouge">HEAD</code> &gt; <code class="language-plaintext highlighter-rouge">LINK</code> &gt; <code class="language-plaintext highlighter-rouge">TITLE</code> &gt; <code class="language-plaintext highlighter-rouge">TEXT</code> &gt; <code class="language-plaintext highlighter-rouge">/TITLE</code> &gt; <code class="language-plaintext highlighter-rouge">/HEAD</code> &gt; <code class="language-plaintext highlighter-rouge">BODY</code> &gt; <code class="language-plaintext highlighter-rouge">H1</code> &gt; <code class="language-plaintext highlighter-rouge">TEXT</code> &gt; <code class="language-plaintext highlighter-rouge">/H1</code> &gt;
+<code class="language-plaintext highlighter-rouge">P</code> &gt; <code class="language-plaintext highlighter-rouge">TEXT</code> &gt; <code class="language-plaintext highlighter-rouge">/P</code> &gt; <code class="language-plaintext highlighter-rouge">/BODY</code> &gt; <code class="language-plaintext highlighter-rouge">/HTML</code></p>
+
+<p>Note that not only HTML tags are identified by tokens. The text content from the
+<code class="language-plaintext highlighter-rouge">title</code>, <code class="language-plaintext highlighter-rouge">h1</code> and <code class="language-plaintext highlighter-rouge">p</code> tags generate a <code class="language-plaintext highlighter-rouge">TEXT</code> token to identify them.</p>
+
+<p>After transforming the HTML text into tokens, the browser scans each token and
+arranges them in the DOM tree structure. The browser knows how to create
+this structure based on the order of these tokens and the rules for each token.</p>
+
+<p>Each node of the DOM tree is also used to store additional information about that node
+like tag attributes.</p>
+
+<p><img src="/assets/2-1-dom-tree.svg" alt="DOM tree for the example HTML" /></p>
+
+<p>The entire process can be represented by this simple image:</p>
+
+<p><img src="/assets/2-2-parsing-steps.svg" alt="DOM construction steps" /></p>
+
+<h2 id="the-cssom">The CSSOM</h2>
+
+<p>The CSSOM is a structure similar to the DOM that is constructed by the browser
+to store the css information for a page.</p>
+
+<p>Like the DOM, the CSSOM is constructed as a tree and the steps required
+to generate the CSSOM from a css file are the same as the DOM.</p>
+
+<p>The file is read character by character to generate tokens that will be later
+arranged in a tree structure.</p>
+
+<p>Let’s have a look how the browser will construct the CSSOM for the following css.</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">body</span> <span class="p">{</span> <span class="nl">font-size</span><span class="p">:</span> <span class="m">14px</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">p</span> <span class="p">{</span> <span class="nl">line-height</span><span class="p">:</span> <span class="m">25px</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">span</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="no">red</span> <span class="p">}</span>
+<span class="nt">p</span> <span class="nt">span</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="no">green</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>The tree structure of the CSSOM is constructed from the most generic to the most
+specific rule.</p>
+
+<p>Each node of the CSSOM contains the css rule defined by the css in addition to
+rules inherited from parent nodes. This rule inheritance is also called “cascading”
+and that’s where the name Cascading Style Sheets comes from.</p>
+
+<p><img src="/assets/2-3-cssom-tree.svg" alt="DOM construction steps" /></p>
+
+<p>In the example above it’s possible to see that the <code class="language-plaintext highlighter-rouge">font-size</code> rule defined for
+the <code class="language-plaintext highlighter-rouge">body</code> is cascaded down to <code class="language-plaintext highlighter-rouge">p</code> and <code class="language-plaintext highlighter-rouge">span</code>.</p>
+
+<p>Another interesting thing to note in this example is the rule overriding. The css
+defines that all <code class="language-plaintext highlighter-rouge">span</code> elements should be <code class="language-plaintext highlighter-rouge">red</code>. But all <code class="language-plaintext highlighter-rouge">span</code> that are inside a <code class="language-plaintext highlighter-rouge">p</code>
+tag will be rendered green because a more specific rule <code class="language-plaintext highlighter-rouge">p span</code> overrides the
+initial rule.</p>
+
+<h2 id="the-render-tree">The Render Tree</h2>
+
+<p>After creating the DOM tree and the CSSOM tree the browser combines these trees
+into a new tree called the “render tree”.</p>
+
+<p>The render tree will contain only nodes that need to be rendered by the browser.
+DOM nodes representing tags like <code class="language-plaintext highlighter-rouge">&lt;script&gt;</code> or <code class="language-plaintext highlighter-rouge">&lt;link&gt;</code> tags won’t be present in
+the render tree. Nodes with css rules like <code class="language-plaintext highlighter-rouge">display: none</code> won’t be present either.</p>
+
+<h3 id="layout-calculation">Layout Calculation</h3>
+
+<p>In this phase the browser will read the render tree starting on the root node
+and will traverse each node of the tree to calculate the exact size and position
+in pixels of every html element on the page.</p>
+
+<p>This step is necessary because positioning, widths and heights can be defined in
+the css using relative units like <code class="language-plaintext highlighter-rouge">%</code> or <code class="language-plaintext highlighter-rouge">em</code> and must be converted to absolute
+pixels equivalent based on the browser viewport size.</p>
+
+<h3 id="painting">Painting</h3>
+
+<p>And finally, the last step. With every position defined in exact pixel units the
+browser can start painting each pixel of the screen to render the page.</p>
+
+<h2 id="optimizing-the-rendering-process">Optimizing The Rendering Process</h2>
+
+<p>The page rendering process is long and complex. Based on what we learned so far
+there are 3 easy optimizations we can do to help the browser to go trough this
+entire process and display the page as fast as possible to our users.</p>
+
+<p>The first is, remove all unnecessary html and css from your pages. Unnecessary html
+and css that won’t ever be displayed makes the browser do a lot of useless
+work.</p>
+
+<p>That’s because the browser will parse and create the DOM and CSSOM trees
+for all html and css and will only detect what should be displayed or hidden
+in the render tree construction step.</p>
+
+<p>Second, improve your server response time. By getting the html and css files
+earlier, the browser can start the whole rendering process earlier too.</p>
+
+<p>Third, reduce the html and css file sizes. That can be done by removing unused
+html/css or by using file compression at the backend. This will reduce the
+time needed for the browser to download all the necessary files and will
+enable it to start the parsing earlier.</p>
+
+<h2 id="in-conclusion">In Conclusion</h2>
+
+<p>Browsers are a really complex piece of software.</p>
+
+<p>But some basic knowledge of how the browsers work, specially how they render
+web pages are helpful to be able to create better pages.</p>
+
+        </div>
+
+        <div class="c-post-end"></div>
+        <div class="l-post__cta">
+          <em>
+            If you liked this post consider <a target='_blank' href="https://twitter.com/intent/tweet?text=From HTML To The Screen: How Browsers Render Web Pages by @decode64 https://decode64.dev/from-html-to-the-screen-how-browsers-render-web-pages/">sharing it on Twitter</a>. You can reach me
+            at <a href="https://twitter.com/decode64">@decode64</a>
+            for any questions, comments or feedback.
+          </em>
+        </div>
+
+        <ul class="tags">
+          
+          <li>html</li>
+          
+          <li>dom</li>
+          
+        </ul>
+      </section>
+
+      <div class="copy">2021 © Adriano Luz</div>
+    </div>
+
+    <script>
+      function highlight() {
+        if (typeof hljs !== 'undefined') { hljs.highlightAll() }
+        else { setTimeout(highlight, 1000) }
+      }
+      highlight()
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-76506964-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-76506964-1');
+    </script>
+  </body>
+</html>
