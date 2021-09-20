@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <link rel="icon" type="image/png" sizes="100x100" href="../assets/favicon.png">
+
+    <title>How To Add Dark Mode To A Web Page | decode64 </title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+
+    <script src="/assets/highlight.min.js" defer="true"></script>
+
+    <style type="text/css">
+    
+    /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:block}h1{font-size:2em;margin:0.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace, monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace, monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-0.25em}sup{top:-0.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}button,[type="button"],[type="reset"],[type="submit"]{-webkit-appearance:button}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner{border-style:none;padding:0}button:-moz-focusring,[type="button"]:-moz-focusring,[type="reset"]:-moz-focusring,[type="submit"]:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:0.35em 0.75em 0.625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type="checkbox"],[type="radio"]{box-sizing:border-box;padding:0}[type="number"]::-webkit-inner-spin-button,[type="number"]::-webkit-outer-spin-button{height:auto}[type="search"]{-webkit-appearance:textfield;outline-offset:-2px}[type="search"]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}template{display:none}[hidden]{display:none}body{margin:0;padding:0;font-family:'Montserrat', sans-serif;font-smooth:always;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:geometricPrecision}h1{margin:0;margin-bottom:40px}p{margin:25px 0;line-height:25px}pre.highlight{max-width:100%;overflow-x:scroll}a{text-decoration:none;color:#0066FF}code.language-plaintext{color:#FF0000;font-family:Ubuntu Mono, monospace}.container{max-width:630px;margin-left:150px}@media screen and (max-width: 600px){.container{max-width:630px;width:100%;margin-left:0 !important}}.highlight{margin-left:20px}.header span{margin-left:20px}.tags{list-style-type:none;margin:0;padding:0}.tags li{display:inline;border:1px solid #000;padding:2px 6px;margin-right:10px;font-size:12px}.copy{text-align:center;font-size:10px;margin-top:20px;margin-bottom:10px}.c-post-end{margin-top:40px;margin-bottom:25px;width:100%;background:url("../assets/post-end.svg") no-repeat;height:12px}.l-post{margin-top:35px}.l-post img{margin:15px auto;display:block}.l-post__date{padding-left:25px;margin:30px 0}.l-post__content{padding-left:25px}.l-post__cta{margin-bottom:25px}@media screen and (max-width: 600px){.l-post{padding:0 10px !important}.l-post h1{padding:0 !important}.l-post .highlight{margin-left:0 !important}.l-post__content{padding:0 !important}}/*!
+  Theme: a11y-light
+  Author: @ericwbailey
+  Maintainer: @ericwbailey
+
+  Based on the Tomorrow Night Eighties theme: https://github.com/isagalaev/highlight.js/blob/master/src/styles/tomorrow-night-eighties.css
+*/.hljs{background:#fefefe;color:#545454}.hljs-comment,.hljs-quote{color:#696969}.hljs-variable,.hljs-template-variable,.hljs-tag,.hljs-name,.hljs-selector-id,.hljs-selector-class,.hljs-regexp,.hljs-deletion{color:#d91e18}.hljs-number,.hljs-built_in,.hljs-literal,.hljs-type,.hljs-params,.hljs-meta,.hljs-link{color:#aa5d00}.hljs-attribute{color:#aa5d00}.hljs-string,.hljs-symbol,.hljs-bullet,.hljs-addition{color:#008000}.hljs-title,.hljs-section{color:#007faa}.hljs-keyword,.hljs-selector-tag{color:#7928a1}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:bold}@media screen and (-ms-high-contrast: active){.hljs-addition,.hljs-attribute,.hljs-built_in,.hljs-bullet,.hljs-comment,.hljs-link,.hljs-literal,.hljs-meta,.hljs-number,.hljs-params,.hljs-string,.hljs-symbol,.hljs-type,.hljs-quote{color:highlight}.hljs-keyword,.hljs-selector-tag{font-weight:bold}}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <section class="header">
+        <a href="/" >
+          <img src="/assets/decode64-logo.svg" alt="Decode64 Logo" width=100 height=34 />
+        </a>
+        <span>Adriano Luz</span>
+      </section>
+
+      <section class="l-post">
+        <div class="l-post__date">
+          Sep 20, 2021
+        </div>
+        <h1>How To Add Dark Mode To A Web Page</h1>
+        <div class="l-post__content">
+          <p>Recently I finished adding darkmode to my side project, <a href="dotRemote.io">dotRemote.io</a>. In this short post I want to show a simple way to detect whether the user has dark mode enabled in his system and show how to easily add dark mode to any website, plus, make it switchable.</p>
+
+<h2 id="dark-mode-css">Dark Mode CSS</h2>
+
+<p>To be able to render the site dark version and be able to switch between dark and light mode, a class can be added to the document <code class="language-plaintext highlighter-rouge">body</code>.</p>
+
+<p>This way, all the dark mode CSS can be styled based on the presence of this class in the <code class="language-plaintext highlighter-rouge">body</code>:</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">body</span><span class="nc">.dark-mode</span> <span class="nc">.my-div</span> <span class="p">{</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="m">#000</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.my-div</span> <span class="p">{</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="m">#FFF</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="detecting-dark-mode">Detecting Dark Mode</h2>
+
+<p>The simplest way to detect if the user has dark mode set in his system is by using the following snipped:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">matchMedia</span> <span class="o">&amp;&amp;</span> <span class="nb">window</span><span class="p">.</span><span class="nx">matchMedia</span><span class="p">(</span><span class="dl">'</span><span class="s1">(prefers-color-scheme: dark)</span><span class="dl">'</span><span class="p">).</span><span class="nx">matches</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>We can add this small snippet at the end of the <code class="language-plaintext highlighter-rouge">body</code> of the page and use it to add the <code class="language-plaintext highlighter-rouge">dark-mode</code> class to the <code class="language-plaintext highlighter-rouge">body</code> element to render the dark version of the page:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script&gt;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">matchMedia</span> <span class="o">&amp;&amp;</span> <span class="nb">window</span><span class="p">.</span><span class="nx">matchMedia</span><span class="p">(</span><span class="dl">'</span><span class="s1">(prefers-color-scheme: dark)</span><span class="dl">'</span><span class="p">).</span><span class="nx">matches</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="dl">'</span><span class="s1">dark-mode</span><span class="dl">'</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<p>With the following code, dark/light mode can be toggled based on a button click:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">.toggle-dark-mode</span><span class="dl">'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">click</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">toggle</span><span class="p">(</span><span class="dl">'</span><span class="s1">dark-mode</span><span class="dl">'</span><span class="p">)</span>
+<span class="p">})</span>
+
+</code></pre></div></div>
+
+<p>And that’s it!</p>
+
+        </div>
+
+        <div class="c-post-end"></div>
+        <div class="l-post__cta">
+          <em>
+            If you have any questions, comments or feedback, reach me on twitter at <a href="https://twitter.com/decode64">@decode64</a>.
+          </em>
+        </div>
+
+        <ul class="tags">
+          
+          <li>html</li>
+          
+          <li>dark-mode</li>
+          
+        </ul>
+      </section>
+
+      <div class="copy">2021 © Adriano Luz</div>
+    </div>
+
+    <script>
+      function highlight() {
+        if (typeof hljs !== 'undefined') { hljs.highlightAll() }
+        else { setTimeout(highlight, 1000) }
+      }
+      highlight()
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-76506964-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-76506964-1');
+    </script>
+  </body>
+</html>
